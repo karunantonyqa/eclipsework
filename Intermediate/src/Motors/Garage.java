@@ -24,6 +24,12 @@ public class Garage {
 		
 		double mb1Cost = mb1.calRepairCost(mb1.getRepairCost(), mb1.getCC());
 		System.out.println(mb1Cost);
+		
+		removeVehicleByType("Truck");
+		
+		for(int i=0;i<garage.size();i++) {
+			System.out.println(garage.get(i).getName());
+		}
 	}
 	
 	
@@ -33,6 +39,24 @@ public class Garage {
 	
 	public void removeVehicle(Vehicle v) {
 		garage.remove(v);
+	}
+	
+	public static void removeVehicleById(int id) {
+		for(int i=0;i<garage.size();i++) {
+			int tempID = garage.get(i).getId();
+			if(tempID == id) {
+				garage.remove(i);
+			}
+		}
+	}
+	
+	public static void removeVehicleByType(String type) {
+		for(int i=0;i<garage.size();i++) {
+			String tempType = garage.get(i).getType();
+			if(type.equals(tempType)) {
+				garage.remove(i);
+			}
+		}
 	}
 	
 	public void emptyGarage() {
