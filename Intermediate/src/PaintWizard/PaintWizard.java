@@ -22,6 +22,8 @@ public class PaintWizard {
 		paints.add(duluxPaints);
 		
 		System.out.println(calCheapestPaint(2000));
+		
+		System.out.println(calLeastWastePaint(300));
 
 	}
 	
@@ -76,8 +78,9 @@ public class PaintWizard {
 		
 	}
 	
-	public static double calCheapestPaint(int coverage) {
+	public static String calCheapestPaint(int coverage) {
 		double price=0;
+		String cheapestString=null;
 		
 		double cheap = calCheapCost(coverage);
 		double average = calAverageCost(coverage);
@@ -86,7 +89,72 @@ public class PaintWizard {
 		double cheapest = Math.min(cheap, average);
 		cheapest = Math.min(cheapest, dulux);
 		
-		return cheapest;
+		if(cheapest == cheap) {
+			cheapestString = "The cheapest paint for your room is CheapoMax at: £" + Math.round(cheapest*100)/100;
+		} else if(cheapest == average) {
+			cheapestString = "The cheapest paint for your room is AverageJoe's at: £" + Math.round(cheapest*100)/100;
+		} else {
+			cheapestString = "The cheapest paint for your room is DuluxourousPaints at: £" + Math.round(cheapest*100)/100;
+
+		}
+		
+		return cheapestString;
+	}
+	
+	public static double calCheapoWaste(int coverage) {
+		
+		float areaCovered = cheapoMax.getVolume()*cheapoMax.getCoverage();
+		double tinsNeeded = Math.ceil(coverage/areaCovered);
+		double wasteAmount = (tinsNeeded*cheapoMax.getVolume()*cheapoMax.getCoverage())-coverage;
+		
+		return wasteAmount;
+	}
+	
+	public static double calAverageWaste(int coverage) {
+		
+		float areaCovered = averageJoes.getVolume()*averageJoes.getCoverage();
+		double tinsNeeded = Math.ceil(coverage/areaCovered);
+		double wasteAmount = (tinsNeeded*averageJoes.getVolume()*averageJoes.getCoverage())-coverage;
+		
+		return wasteAmount;
+	}
+
+	public static double calDuluxWaste(int coverage) {
+	
+		float areaCovered = duluxPaints.getVolume()*duluxPaints.getCoverage();
+		
+		double tinsNeeded = Math.ceil(coverage/areaCovered);
+		
+		double wasteAmount = (tinsNeeded*duluxPaints.getVolume()*duluxPaints.getCoverage())-coverage;
+	
+		return wasteAmount;
+	}
+	
+	public static String calLeastWastePaint(int coverage) {
+		double leastWaste =0;
+		String leastWasteString=null;
+		
+		double cheapoWaste = calCheapoWaste(coverage);
+		System.out.println(cheapoWaste);
+		double averageWaste = calAverageWaste(coverage);
+		System.out.println(averageWaste);
+		double duluxWaste = calDuluxWaste(coverage);
+		System.out.println(duluxWaste);
+		
+		leastWaste = Math.min(cheapoWaste, averageWaste);
+		leastWaste = Math.min(leastWaste, duluxWaste);
+		
+		if(leastWaste == cheapoWaste) {
+			leastWasteString = "The least wasteful paint for your room is CheapoMax at: " + Math.round(leastWaste*100)/100;
+		} else if(leastWaste == averageWaste) {
+			leastWasteString = "The least wasteful paint for your room is AverageJoe's at: " + Math.round(leastWaste*100)/100;
+		} else {
+			leastWasteString = "The least wasteful paint for your room is DuluxourousPaints at: " + Math.round(leastWaste*100)/100;
+
+		}
+
+		
+		return leastWasteString;
 	}
 	
 	
