@@ -46,7 +46,7 @@ public class NPC {
 	}
 
 
-	public static int getNpcPositionX() {
+	public int getNpcPositionX() {
 		return npcPositionX;
 	}
 
@@ -56,7 +56,7 @@ public class NPC {
 	}
 
 
-	public static int getNpcPositionY() {
+	public int getNpcPositionY() {
 		return npcPositionY;
 	}
 

@@ -58,7 +58,7 @@ public class Location {
 		p.setPlayerHealth(p.getPlayerHealth()-getLocationHeal());
 	}
 
-	public static int getLocPositionX() {
+	public int getLocPositionX() {
 		return locPositionX;
 	}
 
@@ -66,7 +66,7 @@ public class Location {
 		Location.locPositionX = locPositionX;
 	}
 
-	public static int getLocPositionY() {
+	public int getLocPositionY() {
 		return locPositionY;
 	}
 

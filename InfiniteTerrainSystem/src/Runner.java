@@ -97,7 +97,7 @@ public class Runner {
 			System.out.println("Enter the direction you choose to move (e.g. north, south, east, west)");
 			String userInput = sc.nextLine();
 			
-			Player.movePlayer(userInput);
+			p1.movePlayer(userInput);
 			
 			interactNPC();
 			
@@ -105,7 +105,7 @@ public class Runner {
 			
 			System.out.println("Player health: " + p1.getPlayerHealth());
 			
-			System.out.println("Player position: " + Player.getPlayerPositionX() + " " + Player.getPlayerPositionY());
+			System.out.println("Player position: " + p1.getPlayerPositionX() + " " + p1.getPlayerPositionY());
 			
 			System.out.println("Compass says distance to treasure: " + compass.getDistanceToTreasure(p1) + "m");
 			
@@ -115,6 +115,7 @@ public class Runner {
 			System.out.println("You found the treasure/portal! ");
 			System.out.println("You WIN!");
 		}
+		sc.close();
 
 	}
 	
@@ -175,14 +176,30 @@ public class Runner {
 	
 	public static void interactNPC() {
 		for(int i=0;i<enemyNPCS.size();i++) {
-			if((p1.getPlayerPositionX()==enemyNPCS.get(i).getNpcPositionX()) &&p1.getPlayerPositionY()==enemyNPCS.get(i).getNpcPositionY()) {
+			
+			int playerX = p1.getPlayerPositionX();
+			int playerY = p1.getPlayerPositionY();
+			
+			int enemyX = enemyNPCS.get(i).getNpcPositionX();
+			int enemyY = enemyNPCS.get(i).getNpcPositionY();
+
+			
+			if((playerX==enemyX) &&((playerY==enemyY))) {
 				System.out.println("You found " + enemyNPCS.get(i).getNpcName());
 				enemyNPCS.get(i).attack(p1);
 			}
+			
 		}
 		
 		for(int i=0;i<friendlyNPCS.size();i++) {
-			if((p1.getPlayerPositionX()==friendlyNPCS.get(i).getNpcPositionX()) &&p1.getPlayerPositionY()==friendlyNPCS.get(i).getNpcPositionY()) {
+			
+			int playerX = p1.getPlayerPositionX();
+			int playerY = p1.getPlayerPositionY();
+			
+			int friendX = friendlyNPCS.get(i).getNpcPositionX();
+			int friendY = friendlyNPCS.get(i).getNpcPositionY();
+			
+			if((playerX==friendX) &&(playerY==friendY)) {
 				System.out.println("You found " + friendlyNPCS.get(i).getNpcName());
 				friendlyNPCS.get(i).heal(p1);
 			}
@@ -193,9 +210,14 @@ public class Runner {
 		// TODO Auto-generated method stub
 		for(int i=0;i<locations.size();i++) {
 			
-			locations.get(i);
-			locations.get(i);
-			if((p1.getPlayerPositionX()==locations.get(i).getLocPositionX()) &&p1.getPlayerPositionY()==locations.get(i).getLocPositionY()) {
+			int playerX = p1.getPlayerPositionX();
+			int playerY = p1.getPlayerPositionY();
+			
+			int locationX = locations.get(i).getLocPositionX();
+			int locationY = locations.get(i).getLocPositionY();
+
+			
+			if((playerX==locationX) &&(playerY==locationY)) {
 				locations.get(i).attack(p1);
 				locations.get(i).heal(p1);
 				System.out.println(locations.get(i).getLocationMessage());

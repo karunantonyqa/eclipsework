@@ -21,7 +21,7 @@ public class EnemyNPC extends NPC {
 	}
 	
 	public void attack(Player p) {
-		p.setPlayerHealth((p.getPlayerHealth())-(getAttackPower()));
+		p.setPlayerHealth(p.getPlayerHealth()-getAttackPower());
 	}
 
 }

@@ -15,7 +15,7 @@ public class Player {
 		this.playerPositionY=playerPositionY;
 	}
 	
-	public static void movePlayer(String direction) {
+	public void movePlayer(String direction) {
 		if(direction.equals("north")) {
 			playerPositionY++;
 		} else if(direction.equals("south")) {
@@ -53,7 +53,7 @@ public class Player {
 	}
 
 
-	public static int getPlayerPositionX() {
+	public int getPlayerPositionX() {
 		return playerPositionX;
 	}
 
@@ -61,7 +61,7 @@ public class Player {
 		Player.playerPositionX = playerPositionX;
 	}
 
-	public static int getPlayerPositionY() {
+	public int getPlayerPositionY() {
 		return playerPositionY;
 	}
 
