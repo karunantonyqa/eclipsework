@@ -1,24 +1,24 @@
-Hakim 
-The Thinker 
-24 
-
-Noor 
-The 3pm Napper 
-23 
-
-Melvin 
-The Dreadmaster 
-25 
-
-Elvis 
-The Joker 
-23 
-
-Henrie 
-The Eighth King, of QAC 
-22 
-
-Vinu 
-The Smooth Criminal 
-24 
-
+Name: Hakim
+Occupation: The Thinker
+Age: 24 
+,
+Name: Noor
+Occupation: The 3pm Napper
+Age: 23 
+,
+Name: Melvin
+Occupation: The Dreadmaster
+Age: 25 
+,
+Name: Elvis
+Occupation: The Joker
+Age: 23 
+,
+Name: Henrie
+Occupation: The Eighth King of QAC
+Age: 22 
+,
+Name: Vinu
+Occupation: The Smooth Criminal
+Age: 24 
+,

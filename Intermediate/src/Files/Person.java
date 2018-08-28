@@ -28,7 +28,7 @@ public class Person {
 		Person p2 = new Person("Noor", "The 3pm Napper", 23);
 		Person p3 = new Person("Melvin", "The Dreadmaster", 25);
 		Person p4 = new Person("Elvis", "The Joker", 23);
-		Person p5 = new Person("Henrie", "The Eighth King, of QAC", 22);
+		Person p5 = new Person("Henrie", "The Eighth King of QAC", 22);
 		Person p6 = new Person("Vinu", "The Smooth Criminal", 24);
 		
 		people.add(p1);
@@ -43,7 +43,7 @@ public class Person {
 		readFile(fileName, readPeople);
 		
 		for(int i=0;i<readPeople.size();i++) {
-			System.out.println(readPeople.toString());
+			//System.out.println(readPeople.toString());
 		}
 			
 	}
@@ -60,13 +60,20 @@ public class Person {
 		int count =1;
 		
 		for (String line = br.readLine(); line != null; line = br.readLine()) {
-			String name = br.readLine();
-			String occupation = br.readLine();
-			int age = br.read();
+			String firstLineName = line;
+			firstLineName = firstLineName.substring(5);
+			System.out.println(firstLineName);
+			String secLineOcc = br.readLine();
+			secLineOcc = secLineOcc.substring(11);
+			System.out.println(secLineOcc);
+			String thirdLineAge = br.readLine();
+			thirdLineAge = thirdLineAge.substring(4);
+			System.out.println(thirdLineAge);
+			//System.out.println(thirdLineAge);
 			
-			mess = name + occupation + age;
+			//mess =  name + occupation + age;
 			
-			readPeople.add(new Person(name, occupation, age));
+			//readPeople.add(new Person(firstLineName, secLineOcc, thirdLineAge));
 		}
 			
 		
@@ -114,7 +121,7 @@ public class Person {
 		
 		try {
 			for(int i=0;i<people.size();i++) {
-			String fileString = people.get(i).toString();
+			String fileString = people.get(i).toString() + ",";
 					
 			bw.write(fileString);
 			
@@ -130,7 +137,7 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return getName() + " \n" +  getOccupation() + " \n"  + getAge() + " \n";
+		return "Name: " + getName() + "\nOccupation: " +  getOccupation() + "\nAge: "  + getAge() + " \n";
 	}
 
 }
