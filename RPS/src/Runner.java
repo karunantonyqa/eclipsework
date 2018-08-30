@@ -31,6 +31,8 @@ public class Runner {
 		boolean playerHasWon = false;
 		while(!playerHasWon) {
 			
+			
+			// if user chooses ROCK
 			if(userMove.equals("R") && rpsList[random].equals("R")) {
 				System.out.println("You DRAW the round!");
 				tieCount++;
@@ -47,6 +49,7 @@ public class Runner {
 				scissorCount++;
 			}
 			
+			// if user chooses PAPER
 			else if(userMove.equals("P") && rpsList[random].equals("P")) {
 				System.out.println("You DRAW the round!");
 				paperCount+=2;
@@ -63,6 +66,7 @@ public class Runner {
 				rockCount++;
 			}
 			
+			// if user chooses 
 			else if(userMove.equals("S") && rpsList[random].equals("S")) {
 				System.out.println("You DRAW the round!");
 				scissorCount+=2;
@@ -98,6 +102,8 @@ public class Runner {
 			System.out.println("\nAI Score: " + computer + "\nPercentage: " + aiPerc);
 			System.out.println("Choose your move (R, P or S): ");
 			userMove = sc.nextLine();
+			random = rand.nextInt(3);
+
 			
 		}
 		sc.close();

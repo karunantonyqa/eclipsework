@@ -59,7 +59,7 @@ public class Person {
 		String mess=null;
 		int count =1;
 		
-		for (String line = br.readLine(); line != null; line = br.readLine()) {
+		for (String line = br.readLine(); line != null; line = br.readLine()) { 
 			String firstLineName = line;
 			firstLineName = firstLineName.substring(5);
 			System.out.println(firstLineName);
